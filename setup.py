@@ -36,8 +36,8 @@ setuptools.setup(
         "scipy == 1.7.1",
     ],
     package_data={'simtel': [
-        'simtel/tel_data/*.csv',
-        'simtel/tel_data/*.dat'
+        'tel_data/*.csv',
+        'tel_data/*.dat'
     ]}
 )
 
