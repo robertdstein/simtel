@@ -38,7 +38,6 @@ setuptools.setup(
     package_data={'simtel': [
         'simtel/tel_data/*.csv',
         'simtel/tel_data/*.dat'
-    ]},
-    include_package_data=True
+    ]}
 )
 
