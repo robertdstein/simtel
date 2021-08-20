@@ -52,7 +52,7 @@ telescopes = {
     ),
     "WISE": Telescope(
             "WISE",
-            ("W1", "wise_w1.csv"),
-            ("W2", "wise_w2.csv"),
+            ("W1", "wise_W1.csv"),
+            ("W2", "wise_W2.csv"),
         )
 }
