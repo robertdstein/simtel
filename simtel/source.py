@@ -22,23 +22,20 @@ class Source:
         return lum/(4. * np.pi * dl**2.)
 
     @staticmethod
-    def flux_to_ab_mag(f_jansky):
-        return -2.5 * np.log10(f_jansky / u.jansky) + 8.9
-
-    def lum_to_abs_mag(self, l_nu):
+    def lum_to_abs_mag(l_nu):
         flux = l_nu / (4. * np.pi * (10. * u.pc)**2.)
-        abs_mag = self.flux_to_ab_mag(flux)
+        abs_mag = flux.to(u.ABmag)
         return abs_mag
 
     def peak_flux(self, wl_aa, z):
-        return self.lum_to_flux(self.peak_luminosity(wl_aa), z)
+        return (1.+z) * self.lum_to_flux(self.peak_luminosity(wl_aa/(1.+z)), z)
 
     @staticmethod
     def lambda_to_nu(wl_aa):
         return (wl_aa * u.AA)**2./const.c
 
     def peak_flux_nu(self, wl_aa, z):
-        return self.peak_flux(wl_aa, z) * self.lambda_to_nu(wl_aa)
+        return self.peak_flux(wl_aa, z) * self.lambda_to_nu(wl_aa/(1.+z))
 
     def peak_luminosity_nu(self, wl_aa):
         return self.peak_luminosity(wl_aa) * self.lambda_to_nu(wl_aa)
