@@ -25,7 +25,7 @@ setuptools.setup(
     ],
     python_requires='>=3.7',
     install_requires=[
-        "setuptools==57.4.0",
+        "setuptools",
         "numpy==1.21.2",
         "matplotlib==3.4.3",
         "astropy==4.3.1",
